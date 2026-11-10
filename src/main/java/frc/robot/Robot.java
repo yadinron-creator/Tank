@@ -4,19 +4,23 @@
 
 package frc.robot;
 
+import commands.Autonomous;
+import edu.wpi.first.wpilibj.DataLogManager;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 public class Robot extends TimedRobot {
 
+    private Tank tank;
+
     @Override
     public void robotInit() {
-
+        tank = Tank.getInstance();
     }
 
     @Override
     public void robotPeriodic() {
-
+        CommandScheduler.getInstance().run();
     }
 
     @Override
@@ -31,7 +35,9 @@ public class Robot extends TimedRobot {
 
     @Override
     public void autonomousInit() {
-
+        CommandScheduler.getInstance().schedule(
+                new Autonomous()
+        );
     }
 
     @Override
@@ -41,7 +47,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopInit() {
-
+        OI oi = new OI();
     }
 
     @Override

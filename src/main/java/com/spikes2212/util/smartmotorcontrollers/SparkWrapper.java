@@ -61,6 +61,7 @@ public class SparkWrapper implements SmartMotorController {
         sparkWrapper.sparkBase = new SparkMax(deviceID, type);
         sparkWrapper.sparkConfig = new SparkMaxConfig();
         sparkWrapper.configAccessor = ((SparkMax) (sparkWrapper.sparkBase)).configAccessor;
+        sparkWrapper.restoreFactoryDefaults();
         return sparkWrapper;
     }
 
